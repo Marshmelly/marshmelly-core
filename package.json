@@ -1,0 +1,40 @@
+{
+  "name": "marshmelly-core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "core.js",
+  "scripts": {
+    "build": "npm run lint && npm run compile",
+    "compile": "tsc --build tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marshmelly",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/voice": "^0.8.0",
+    "@types/node": "^17.0.24",
+    "bufferutil": "^4.0.6",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
+    "entities": "^4.3.0",
+    "erlpack": "github:discord/erlpack",
+    "express": "^4.17.3",
+    "ffmpeg-static": "^4.4.1",
+    "fs": "^0.0.1-security",
+    "iso8601-duration": "^2.1.1",
+    "node-fetch": "^3.2.3",
+    "opusscript": "^0.0.8",
+    "parse-ms": "^3.0.0",
+    "path": "^0.12.7",
+    "pretty-ms": "^7.0.1",
+    "semver": "^7.3.7",
+    "typescript": "^4.6.3",
+    "update": "^0.4.2",
+    "utf-8-validate": "^5.0.9",
+    "winston": "^3.7.2",
+    "ytdl-core": "^4.11.0",
+    "ytpl": "^2.3.0",
+    "ytsr": "^3.7.0",
+    "zlib-sync": "^0.1.7"
+  }
+}
