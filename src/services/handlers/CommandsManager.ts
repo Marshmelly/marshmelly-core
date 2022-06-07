@@ -16,12 +16,23 @@ export class CommandsHandler extends Collection<string, CommandComponent> {
                 for (const file of files) {
                     const path = resolve(this.path, file);
                     const command = await this.import(path, this.client, {path});
+                    
+                    if (command && command.aliases) {
+                        if (Number(command.aliases?.length) > 0) {
+                            for (const alias of command.aliases) {
+                                this.aliases.set(alias, command.command_name)
+                            }
+                        }
+                        this.set(command.command_name, command)
+                    }
                 }
-            })
+            }).catch(err => this.client.logger.error("CMD", err))
     }
 
     public async import(path:string, ...args:any[]): Promise<CommandComponent | undefined> {
-        const file = (await import(resolve(path)).then(m => m[parse(path).name]));
+        const file = (await import(resolve(path))
+            .then(f => f[parse(path).name]));
+
         return file ? new file(...args) : undefined;
     }
 }
